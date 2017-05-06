@@ -20,4 +20,16 @@ describe('identity()', () => {
     };
     expect(_.identity(val)).toBe(val);
   });
+
+  it('returns undefined if given undefined', () => {
+    expect(_.identity(undefined)).toBe(undefined);
+  });
+
+  it('returns the same string if given a string', () => {
+    expect(_.identity("Panera Bread")).toBe("Panera Bread");
+  });
+
+  it('returns true if given true', () => {
+    expect(_.identity(true)).toBe(true);
+  });
 });

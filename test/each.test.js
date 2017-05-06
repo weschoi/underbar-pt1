@@ -39,5 +39,21 @@ describe('each()', () => {
     });
     expect(count).toBe(3);
   });
+
+  it('iterates every property of a non-array-like object, passing the value, the corresponding key, and the entire object to the callback', () => {
+    const obj = {
+      "drink": 'Sweet Tea',
+      "quantity": 6,
+      "volume": '100mL'
+    };
+    let newArr = [];
+    _.each(obj, function(value, key, iteratedObj) {
+      expect(value).toEqual(iteratedObj[key]);
+      newArr.push(value);
+    });
+    expect(newArr).toEqual(["Sweet Tea", 6, "100mL"]);
+  });
+
+
 });
 
