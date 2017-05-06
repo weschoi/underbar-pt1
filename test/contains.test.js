@@ -31,4 +31,20 @@ describe('contains()', () => {
     expect(_.contains(ponies, 'Applejack')).toBe(false);
   });
 
+  it('returns true if a variable with the target value is among the values of an object', () => {
+    const cavs = "cavaliers"
+    const bball = {
+      goldenState: "Warriors",
+      detroit: 'Pistons',
+      houston: 'Rocks',
+      cleveland: cavs
+    };
+    expect(_.contains(bball, cavs)).toBe(true);
+  });
+
+  it('returns false if the obj is a string', () => {
+    const greeting = "hola senor";
+    expect(_.contains(greeting, 'hola')).toBe(false);
+  });
+
 });

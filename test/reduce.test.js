@@ -13,4 +13,10 @@ describe('reduce()', () => {
     expect(result).toEqual(15);
   });
 
+  it('reduces an array of numbers to a product, *without* an explicit initial value for the accumulator', () => {
+    const ruleOne = ["don't", " talk", " about", " fight", " club."];
+    const result = _.reduce(ruleOne, (a, b) => a + b);
+    expect(result).toEqual("don't talk about fight club.");
+  });
+
 });

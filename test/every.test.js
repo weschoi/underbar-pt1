@@ -17,5 +17,10 @@ describe('every()', () => {
       expect(_.every(nums, num => num % 2 === 1)).toBe(false);
     });
 
+    it('returns true if all strings have more than a 4 character length', () => {
+      const desktop = ['pencil', 'notebook', 'phone', 'music'];
+      expect(_.every(desktop, items => items.length > 4)).toBe(true);
+    });
+
   });
 });

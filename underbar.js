@@ -42,22 +42,6 @@ const each = function(obj, callback=identity) {
   }
 };
 
-// Return the results of applying the callback to each element.
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-const map = function(obj, callback=identity) {
-  const results = [];
-  each(obj, (currentValue, currentIndexOrKey, obj) => {
-    results.push(callback(currentValue, currentIndexOrKey, obj));
-  });
-  return results;
-};
-
-// Return an array of the values o a certain property in the collection.
-// E.g. given an array of people objects, return an array of just their ages.
-const pluck = function(obj, key) {
-  return map(obj, item => item[key]);
-};
-
 // Reduces collection to a value which is the accumulated result of running
 // each element through the callback, where each successive
 // invocation is supplied the return value of the previous invocation. If `accumulator`
@@ -121,6 +105,22 @@ const uniq = function(obj) {
   return filter(obj, item => {
     return !(item in foundItems) && (foundItems[item] = true);
   });
+};
+
+// Return the results of applying the callback to each element.
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+const map = function(obj, callback=identity) {
+  const results = [];
+  each(obj, (currentValue, currentIndexOrKey, obj) => {
+    results.push(callback(currentValue, currentIndexOrKey, obj));
+  });
+  return results;
+};
+
+// Return an array of the values o a certain property in the collection.
+// E.g. given an array of people objects, return an array of just their ages.
+const pluck = function(obj, key) {
+  return map(obj, item => item[key]);
 };
 
 

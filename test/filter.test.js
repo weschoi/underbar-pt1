@@ -23,4 +23,16 @@ describe('filter()', () => {
     const abilityScores = _.filter(characterAttributes, (value) => !isNaN(value));
     expect(abilityScores).toEqual([4, 7, 10, 16, 5, 4]);
   });
+
+  it('filters an object to its qualitative characteristics', () => {
+    const address = {
+      country: 'USA',
+      temperature: 90,
+      state: 'California',
+      city: 'San Francisco',
+      population: 3000000,
+    };
+
+    expect(_.filter(address, (value) => typeof value === 'string')).toEqual(['USA', 'California', 'San Francisco']);
+  });
 });
